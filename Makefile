@@ -3,8 +3,8 @@
 CFLAGS+=	-lpthread
 
 PROGS=		mutex1 mutex1e mutex1n mutex1r mutex2 mutex3 \
-		mutex4 mutex6 mutex6e mutex6n \
-		mutex6r mutex6s mutex7 mutex7e mutex7n mutex7r \
+		mutex4 mutex6e \
+		mutex6r mutex7 mutex7e mutex7n mutex7r \
 
 # Need PTHREAD_ERRORCHECK_MUTEX_INITIALIZER or another variant.
 #PROGS+=	mutex2e mutex2r mutex3e mutex3r mutex5 mutex6es mutex6rs
