@@ -65,6 +65,7 @@ main()
 
   assert(pthread_mutexattr_init(&ma) == 0);
 
+#if 0
   wasHere = 0;
   assert(pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_DEFAULT) == 0);
   assert(pthread_mutex_init(&mutex1, &ma) == 0);
@@ -88,6 +89,7 @@ main()
   assert(pthread_join(t, NULL) == 0);
   assert(pthread_mutex_unlock(&mutex1) == EPERM);
   assert(wasHere == 2);
+#endif
 
   wasHere = 0;
   assert(pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_ERRORCHECK) == 0);
