@@ -123,7 +123,7 @@ main()
 {
   long i;
   pthread_t t[NUMTHREADS + 1];
-  int result = 0;
+  long result = 0;
   struct _timeb currSysTime;
   const uint32_t NANOSEC_PER_MILLISEC = 1000000;
 
