@@ -3,6 +3,7 @@
 
 #include <pthread.h>
 
+#include <err.h>
 #include <assert.h>
 #include <errno.h>
 #include <stdio.h>
@@ -29,7 +30,7 @@ _ftime(struct _timeb *tbp)
         struct timeval t;
 
         if (gettimeofday(&t, &tz) < 0)
-                return -1;
+        	err(1, "gettimeofday");
         tbp->millitm = (uint16_t)(t.tv_usec / 1000);
         tbp->time = t.tv_sec;
         tbp->timezone = tz.tz_minuteswest;
