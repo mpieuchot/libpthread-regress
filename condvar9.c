@@ -73,7 +73,6 @@
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
 /*
  * Create NUMTHREADS threads in addition to the Main thread.
@@ -166,7 +165,7 @@ main()
   struct _timeb currSysTime;
   const uint32_t NANOSEC_PER_MILLISEC = 1000000;
 
-  assert((t[0] = pthread_self()).p != NULL);
+  assert((t[0] = pthread_self()) != NULL);
 
   assert(cvthing.notbusy == PTHREAD_COND_INITIALIZER);
 
@@ -179,7 +178,7 @@ main()
 
   abstime.tv_sec += 5;
 
-  assert((t[0] = pthread_self()).p != NULL);
+  assert((t[0] = pthread_self()) != NULL);
 
   awoken = 0;
 
@@ -248,7 +247,7 @@ main()
 
   assert(cvthing.lock == NULL);
 
-  assert_e(pthread_cond_destroy(&cvthing.notbusy), ==, 0);
+  assert(pthread_cond_destroy(&cvthing.notbusy) == 0);
 
   assert(cvthing.notbusy == NULL);
 

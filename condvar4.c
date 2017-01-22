@@ -75,7 +75,6 @@
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
 typedef struct cvthing_t_ cvthing_t;
 
@@ -117,7 +116,7 @@ main()
 
   cvthing.shared = 0;
 
-  assert((t[0] = pthread_self()).p != NULL);
+  assert((t[0] = pthread_self()) != NULL);
 
   assert(cvthing.notbusy == PTHREAD_COND_INITIALIZER);
 

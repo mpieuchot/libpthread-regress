@@ -78,7 +78,6 @@
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
 static pthread_cond_t cv;
 static pthread_mutex_t mutex;
@@ -115,7 +114,7 @@ main()
   struct _timeb currSysTime;
   const uint32_t NANOSEC_PER_MILLISEC = 1000000;
 
-  assert((t[0] = pthread_self()).p != NULL);
+  assert((t[0] = pthread_self()) != NULL);
 
   assert(pthread_cond_init(&cv, NULL) == 0);
 

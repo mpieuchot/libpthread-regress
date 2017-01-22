@@ -77,8 +77,6 @@
 
 #include "test.h"
 
-#include <sys/timeb.h>
-
 pthread_cond_t cnd;
 pthread_mutex_t mtx;
 

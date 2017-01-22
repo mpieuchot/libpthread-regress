@@ -78,7 +78,6 @@
 #define _WIN32_WINNT 0x400
 
 #include "test.h"
-#include <sys/timeb.h>
 
 static pthread_cond_t cv;
 static pthread_cond_t cv1;
@@ -118,8 +117,6 @@ mythread(void * arg)
 
   return arg;
 }
-
-#include "../implement.h"
 
 int
 main()
@@ -186,9 +183,11 @@ main()
   if (result != 0)
     {
       fprintf(stderr, "Result = %s\n", strerror(result));
+#if 0
         fprintf(stderr, "\tWaitersBlocked = %ld\n", cv->nWaitersBlocked);
         fprintf(stderr, "\tWaitersGone = %ld\n", cv->nWaitersGone);
         fprintf(stderr, "\tWaitersToUnblock = %ld\n", cv->nWaitersToUnblock);
+#endif
         fflush(stderr);
     }
   assert(result == 0);
