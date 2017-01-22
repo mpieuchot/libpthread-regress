@@ -99,7 +99,7 @@ mythread(void * arg)
 
   abstime2.tv_sec = abstime.tv_sec;
 
-  if ((int) arg % 3 == 0)
+  if ((long) arg % 3 == 0)
     {
       abstime2.tv_sec += 2;
     }
@@ -122,7 +122,7 @@ mythread(void * arg)
 int
 main()
 {
-  int i;
+  long i;
   pthread_t t[NUMTHREADS + 1];
   int result = 0;
   struct _timeb currSysTime;

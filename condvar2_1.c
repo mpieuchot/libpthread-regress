@@ -100,7 +100,7 @@ mythread(void * arg)
 int
 main()
 {
-  int i;
+  long i;
   pthread_t t[NUMTHREADS + 1];
   int result = 0;
   struct _timeb currSysTime;

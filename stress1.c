@@ -98,7 +98,7 @@ static int timeoutCount = 0;
 static int signalsTakenCount = 0;
 static int signalsSent = 0;
 static int bias = 0;
-static int timeout = 10;
+static long timeout = 10;
  // Must be > 0
 
 enum {
@@ -143,9 +143,9 @@ millisecondsFromNow (struct timespec * time, int millisecs)
 void *
 masterThread (void * arg)
 {
-  int dither = (int) arg;
+  long dither = (long) arg;
 
-  timeout = (int) arg;
+  timeout = (long) arg;
 
   pthread_barrier_wait(&startBarrier);
 
@@ -261,7 +261,7 @@ main ()
   assert(pthread_join(slave, NULL) == 0);
   assert(pthread_join(master, NULL) == 0);
 
-  printf("Signals sent = %d\nWait timeouts = %d\nSignals taken = %d\nBias = %d\nTimeout = %d\n",
+  printf("Signals sent = %d\nWait timeouts = %d\nSignals taken = %d\nBias = %d\nTimeout = %ld\n",
 	 signalsSent,
 	 timeoutCount,
 	 signalsTakenCount,

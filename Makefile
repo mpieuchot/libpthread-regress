@@ -1,6 +1,7 @@
 
 
 CFLAGS+=	-lpthread
+CFLAGS+=	-Wall -Werror
 
 PROGS=		mutex1 mutex1e mutex1n mutex1r mutex2 mutex3 mutex4 mutex5 \
 		mutex6e mutex6r mutex7 mutex7e mutex7n mutex7r mutex8 mutex8e \
