@@ -108,11 +108,11 @@ mythread(void * arg)
   assert(pthread_mutex_unlock(&mutex) == 0);
   if (result == ETIMEDOUT)
     {
-      InterlockedIncrement((LPLONG)&timedout);
+      InterlockedIncrement((long *)&timedout);
     }
   else
     {
-      InterlockedIncrement((LPLONG)&awoken);
+      InterlockedIncrement((long *)&awoken);
     }
 
 
@@ -160,7 +160,7 @@ main()
 
 //      assert(pthread_mutex_lock(&mutex) == 0);
 
-      if (InterlockedExchangeAdd((LPLONG)&awoken, 0L) > NUMTHREADS/3)
+      if (InterlockedExchangeAdd((long *)&awoken, 0L) > NUMTHREADS/3)
         {
           assert(pthread_cond_broadcast(&cv) == 0);
         }

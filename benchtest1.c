@@ -155,8 +155,8 @@ main (int argc, char *argv[])
 
 
   TESTSTART
-  assert((InterlockedIncrement((LPLONG)&i), 1) == (LONG)one);
-  assert((InterlockedDecrement((LPLONG)&i), 1) == (LONG)one);
+  assert((InterlockedIncrement((long *)&i), 1) == (LONG)one);
+  assert((InterlockedDecrement((long *)&i), 1) == (LONG)one);
   TESTSTOP
 
   durationMilliSecs = GetDurationMilliSecs(currSysTimeStart, currSysTimeStop) - overHeadMilliSecs;

@@ -114,7 +114,7 @@ main()
       assert(pthread_create(&t[i], &attr, func, NULL) == 0);
     }
 
-  while (NUMTHREADS > InterlockedExchangeAdd((LPLONG)&done, 0L))
+  while (NUMTHREADS > InterlockedExchangeAdd((long *)&done, 0L))
     Sleep(100);
 
   Sleep(100);
