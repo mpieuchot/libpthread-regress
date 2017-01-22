@@ -8,6 +8,8 @@ PROGS=		mutex1 mutex1e mutex1n mutex1r mutex2 mutex3 \
 		mutex8 mutex8e mutex8n mutex8r
 
 
+PROGS+=		stress1
+
 .for p in ${PROGS}
 REGRESS_TARGETS+=	run-regress-${p}
 run-regress-${p}: ${p}

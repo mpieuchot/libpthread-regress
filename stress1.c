@@ -78,7 +78,9 @@
 
 #include "test.h"
 #include <string.h>
-#include <sys/timeb.h>
+
+#define FALSE	0
+#define TRUE	1
 
 
 const unsigned int ITERATIONS = 1000;
