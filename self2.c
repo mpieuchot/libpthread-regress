@@ -45,7 +45,6 @@
  */
 
 #include "test.h"
-#include <string.h>
 
 static pthread_t me;
 

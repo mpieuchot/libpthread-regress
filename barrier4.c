@@ -66,7 +66,7 @@ func(void * arg)
     }
   else
     {
-      printf("Barrier wait failed: error = %s\n", error_string[result]);
+      printf("Barrier wait failed: error = %s\n", strerror(result));
       fflush(stdout);
       return NULL;
     }

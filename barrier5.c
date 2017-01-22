@@ -77,7 +77,7 @@ func(void * barrierHeight)
         }
       else if (result != 0)
         {
-          printf("Barrier failed: result = %s\n", error_string[result]);
+          printf("Barrier failed: result = %s\n", strerror(result));
           fflush(stdout);
           return NULL;
         }

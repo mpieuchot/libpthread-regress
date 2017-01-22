@@ -140,7 +140,7 @@ main()
   int result = pthread_cond_destroy(&cv);
   if (result != 0)
     {
-      fprintf(stderr, "Result = %s\n", error_string[result]);
+      fprintf(stderr, "Result = %s\n", strerror(result));
 	fprintf(stderr, "\tWaitersBlocked = %ld\n", cv->nWaitersBlocked);
 	fprintf(stderr, "\tWaitersGone = %ld\n", cv->nWaitersGone);
 	fprintf(stderr, "\tWaitersToUnblock = %ld\n", cv->nWaitersToUnblock);

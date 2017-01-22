@@ -99,7 +99,7 @@ mythread(void * arg)
 
   if ((result = pthread_cond_signal(&cv)) != 0)
     {
-      printf("Error = %s\n", error_string[result]);
+      printf("Error = %s\n", strerror(result));
     }
   assert(result == 0);
 
