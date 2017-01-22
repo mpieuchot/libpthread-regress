@@ -145,7 +145,7 @@ main()
   pthread_t t[NUMTHREADS + 1];
 
   struct _timeb currSysTime;
-  const DWORD NANOSEC_PER_MILLISEC = 1000000;
+  const uint32_t NANOSEC_PER_MILLISEC = 1000000;
 
   cvthing.shared = 0;
 

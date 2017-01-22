@@ -145,7 +145,7 @@ void *
 test_wait (void *arg)
 {
   HANDLE hEvent;
-  DWORD dwEvent;
+  uint32_t dwEvent;
 
   pthread_setcancelstate (PTHREAD_CANCEL_ENABLE, NULL);
   pthread_setcanceltype (PTHREAD_CANCEL_ASYNCHRONOUS, NULL);

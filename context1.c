@@ -125,7 +125,7 @@ main()
       /*
        *_x86 only!!!
        */
-      context.Eip = (DWORD) anotherEnding;
+      context.Eip = (uint32_t) anotherEnding;
       SetThreadContext(hThread, &context);
       ResumeThread(hThread);
     }

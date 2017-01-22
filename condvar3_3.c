@@ -88,7 +88,7 @@ int main()
 
    struct timespec abstime = { 0, 0 };
    struct _timeb currSysTime;
-   const DWORD NANOSEC_PER_MILLISEC = 1000000;
+   const uint32_t NANOSEC_PER_MILLISEC = 1000000;
 
    assert(pthread_cond_init(&cnd, 0) == 0);
    assert(pthread_mutex_init(&mtx, 0) == 0);

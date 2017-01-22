@@ -90,7 +90,7 @@ main()
   int wr2Result = 0;
   int rdResult = 0;
   struct _timeb currSysTime;
-  const DWORD NANOSEC_PER_MILLISEC = 1000000;
+  const uint32_t NANOSEC_PER_MILLISEC = 1000000;
 
   _ftime(&currSysTime);
 

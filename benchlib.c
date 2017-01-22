@@ -287,7 +287,7 @@ old_mutex_trylock(old_mutex_t *mutex)
 	}
       else
 	{
-	  DWORD status;
+	  uint32_t status;
 
 	  status = WaitForSingleObject (mx->mutex, 0);
 
