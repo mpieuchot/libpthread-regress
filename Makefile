@@ -7,9 +7,6 @@ PROGS=		mutex1 mutex1e mutex1n mutex1r mutex2 mutex3 \
 		mutex6r mutex7 mutex7e mutex7n mutex7r \
 		mutex8 mutex8e mutex8n mutex8r
 
-# Need PTHREAD_ERRORCHECK_MUTEX_INITIALIZER or another variant.
-#PROGS+=	mutex6es mutex6rs
-
 
 .for p in ${PROGS}
 REGRESS_TARGETS+=	run-regress-${p}
