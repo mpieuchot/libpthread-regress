@@ -12,6 +12,9 @@
 
 #define Sleep(ms) usleep(ms * 1000)
 
+#define InterlockedIncrement(p)		__sync_add_and_fetch(p, 1)
+#define InterlockedExchangeAdd(p, v)	__sync_fetch_and_add(p, v)
+
 struct _timeb {
 	time_t		time;
 	uint16_t	millitm;
