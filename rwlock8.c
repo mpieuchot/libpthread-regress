@@ -9,7 +9,6 @@
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
 #ifdef __GNUC__
 #include <stdlib.h>
@@ -195,7 +194,7 @@ main (int argc, char *argv[])
 
   _ftime(&currSysTime2);
 
-  printf( "\nstart: %ld/%d, stop: %ld/%d, duration:%ld\n",
+  printf( "\nstart: %lld/%d, stop: %lld/%d, duration:%lld\n",
           currSysTime1.time,currSysTime1.millitm,
           currSysTime2.time,currSysTime2.millitm,
           (currSysTime2.time*1000+currSysTime2.millitm) -

@@ -43,7 +43,6 @@
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
 pthread_rwlock_t rwlock1 = PTHREAD_RWLOCK_INITIALIZER;
 

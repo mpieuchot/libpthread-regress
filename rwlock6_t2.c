@@ -42,11 +42,10 @@
  */
 
 #include "test.h"
-#include <sys/timeb.h>
 
 static pthread_rwlock_t rwlock1 = PTHREAD_RWLOCK_INITIALIZER;
 
-static int bankAccount = 0;
+static long bankAccount = 0;
 struct timespec abstime = { 0, 0 };
 
 void * wrfunc(void * arg)
@@ -54,7 +53,7 @@ void * wrfunc(void * arg)
   int result;
 
   result = pthread_rwlock_timedwrlock(&rwlock1, &abstime);
-  if ((int) arg == 1)
+  if ((long) arg == 1)
     {
       assert(result == 0);
       Sleep(2000);
@@ -62,7 +61,7 @@ void * wrfunc(void * arg)
       assert(pthread_rwlock_unlock(&rwlock1) == 0);
       return ((void *) bankAccount);
     }
-  else if ((int) arg == 2)
+  else if ((long) arg == 2)
     {
       assert(result == ETIMEDOUT);
       return ((void *) 100);
@@ -73,7 +72,7 @@ void * wrfunc(void * arg)
 
 void * rdfunc(void * arg)
 {
-  int ba = 0;
+  long ba = 0;
 
   assert(pthread_rwlock_timedrdlock(&rwlock1, &abstime) == ETIMEDOUT);
 
@@ -86,9 +85,9 @@ main()
   pthread_t wrt1;
   pthread_t wrt2;
   pthread_t rdt;
-  int wr1Result = 0;
-  int wr2Result = 0;
-  int rdResult = 0;
+  long wr1Result = 0;
+  long wr2Result = 0;
+  long rdResult = 0;
   struct _timeb currSysTime;
   const uint32_t NANOSEC_PER_MILLISEC = 1000000;
 

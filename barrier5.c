@@ -48,14 +48,14 @@ enum {
 pthread_barrier_t barrier = NULL;
 pthread_mutex_t mx = PTHREAD_MUTEX_INITIALIZER;
 
-int barrierReleases[BARRIERS + 1];
+long barrierReleases[BARRIERS + 1];
 
 void *
 func(void * barrierHeight)
 {
   int i;
   int result;
-  int serialThreads = 0;
+  long serialThreads = 0;
 
   for (i = 1; i < BARRIERS; i++)
     {
@@ -72,7 +72,7 @@ func(void * barrierHeight)
       if (result == PTHREAD_BARRIER_SERIAL_THREAD)
         {
           serialThreads++;
-          assert(barrierReleases[i - 1] == (int) barrierHeight);
+          assert(barrierReleases[i - 1] == (long) barrierHeight);
           barrierReleases[i + 1] = 0;
         }
       else if (result != 0)
@@ -89,14 +89,14 @@ func(void * barrierHeight)
 int
 main()
 {
-  int i, j;
-  int result;
+  long i, j;
+  long result;
   int serialThreadsTotal;
   pthread_t t[NUMTHREADS + 1];
 
   for (j = 1; j <= NUMTHREADS; j++)
     {
-      printf("Barrier height = %d\n", j);
+      printf("Barrier height = %ld\n", j);
 
       barrierReleases[0] = j;
       barrierReleases[1] = 0;

@@ -45,14 +45,13 @@
 
 static pthread_rwlock_t rwlock1 = PTHREAD_RWLOCK_INITIALIZER;
 
-static int bankAccount = 0;
+static long bankAccount = 0;
 
 void * wrfunc(void * arg)
 {
-  int ba;
+  long ba;
 
   assert(pthread_rwlock_wrlock(&rwlock1) == 0);
-  Sleep(2000);
   bankAccount += 10;
   ba = bankAccount;
   assert(pthread_rwlock_unlock(&rwlock1) == 0);
@@ -62,7 +61,7 @@ void * wrfunc(void * arg)
 
 void * rdfunc(void * arg)
 {
-  int ba;
+  long ba;
 
   assert(pthread_rwlock_rdlock(&rwlock1) == 0);
   ba = bankAccount;
@@ -77,16 +76,16 @@ main()
   pthread_t wrt1;
   pthread_t wrt2;
   pthread_t rdt;
-  int wr1Result = 0;
-  int wr2Result = 0;
-  int rdResult = 0;
+  long wr1Result = 0;
+  long wr2Result = 0;
+  long rdResult = 0;
 
   bankAccount = 0;
 
   assert(pthread_create(&wrt1, NULL, wrfunc, NULL) == 0);
-  Sleep(500);
+  Sleep(1000);
   assert(pthread_create(&rdt, NULL, rdfunc, NULL) == 0);
-  Sleep(500);
+  Sleep(1000);
   assert(pthread_create(&wrt2, NULL, wrfunc, NULL) == 0);
 
   assert(pthread_join(wrt1, (void **) &wr1Result) == 0);
