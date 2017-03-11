@@ -41,11 +41,11 @@
 #include "test.h"
  
 pthread_barrier_t barrier = NULL;
-static int result = 1;
+static long result = 1;
 
 void * func(void * arg)
 {
-  return (void *) pthread_barrier_wait(&barrier);
+  return (void *)(long) pthread_barrier_wait(&barrier);
 }
  
 int
