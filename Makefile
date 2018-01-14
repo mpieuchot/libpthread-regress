@@ -1,6 +1,6 @@
 
 
-CFLAGS+=	-lpthread
+LDFLAGS+=	-lpthread
 CFLAGS+=	-Wall -Werror
 
 PROGS+=		barrier1 barrier2 barrier3 barrier4 barrier5
